@@ -3,7 +3,7 @@ BEGIN {
   $Pod::Weaver::Section::GenerateSection::AUTHORITY = 'cpan:CDRAUG';
 }
 {
-  $Pod::Weaver::Section::GenerateSection::VERSION = '1.00'; # TRIAL
+  $Pod::Weaver::Section::GenerateSection::VERSION = '1.00';
 }
 ## Copyright (C) 2013 Carnë Draug <carandraug+dev@gmail.com>
 ##
