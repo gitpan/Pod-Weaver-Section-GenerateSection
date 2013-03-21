@@ -1,0 +1,59 @@
+{
+   "abstract" : "add pod section from an interpreted piece of text.",
+   "author" : [
+      "Carn\u00c3\u00ab Draug <cdraug@cpan.org>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.300020, CPAN::Meta::Converter version 2.120921",
+   "license" : [
+      "gpl_3"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Pod-Weaver-Section-GenerateSection",
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.30"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Dist::Zilla::Role::TextTemplate" : "0",
+            "Moose" : "0",
+            "Moose::Autobox" : "0",
+            "MooseX::AttributeShortcuts" : "0",
+            "MooseX::Types::Moose" : "0",
+            "Pod::Weaver::Role::Section" : "0",
+            "namespace::autoclean" : "0",
+            "strict" : "0",
+            "warnings" : "0"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "File::Find" : "0",
+            "File::Temp" : "0",
+            "Test::More" : "0"
+         }
+      }
+   },
+   "release_status" : "testing",
+   "resources" : {
+      "bugtracker" : {
+         "mailto" : "cdraug@cpan.org",
+         "web" : "https://github.com/carandraug/pod-weaver-section-generatesection/issues"
+      },
+      "homepage" : "https://github.com/carandraug/pod-weaver-section-generatesection",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/carandraug/pod-weaver-section-generatesection.git",
+         "web" : "https://github.com/carandraug/pod-weaver-section-generatesection"
+      }
+   },
+   "version" : "1.00",
+   "x_authority" : "cpan:CDRAUG"
+}
+
