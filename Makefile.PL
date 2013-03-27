@@ -9,7 +9,7 @@ use ExtUtils::MakeMaker 6.30;
 
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "add pod section from an interpreted piece of text.",
+  "ABSTRACT" => "add pod section from an interpolated piece of text.",
   "AUTHOR" => "Carn\303\253 Draug <cdraug\@cpan.org>",
   "BUILD_REQUIRES" => {
     "File::Find" => 0,
@@ -32,9 +32,10 @@ my %WriteMakefileArgs = (
     "Pod::Weaver::Role::Section" => 0,
     "namespace::autoclean" => 0,
     "strict" => 0,
+    "utf8" => 0,
     "warnings" => 0
   },
-  "VERSION" => "1.00",
+  "VERSION" => "1.01",
   "test" => {
     "TESTS" => "t/*.t"
   }

@@ -1,5 +1,5 @@
 ---
-abstract: 'add pod section from an interpreted piece of text.'
+abstract: 'add pod section from an interpolated piece of text.'
 author:
   - 'Carnë Draug <cdraug@cpan.org>'
 build_requires:
@@ -24,10 +24,11 @@ requires:
   Pod::Weaver::Role::Section: 0
   namespace::autoclean: 0
   strict: 0
+  utf8: 0
   warnings: 0
 resources:
   bugtracker: https://github.com/carandraug/pod-weaver-section-generatesection/issues
   homepage: https://github.com/carandraug/pod-weaver-section-generatesection
   repository: git://github.com/carandraug/pod-weaver-section-generatesection.git
-version: 1.00
+version: 1.01
 x_authority: cpan:CDRAUG

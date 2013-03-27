@@ -3,8 +3,10 @@ BEGIN {
   $Pod::Weaver::Section::GenerateSection::AUTHORITY = 'cpan:CDRAUG';
 }
 {
-  $Pod::Weaver::Section::GenerateSection::VERSION = '1.00';
+  $Pod::Weaver::Section::GenerateSection::VERSION = '1.01';
 }
+use utf8;
+
 ## Copyright (C) 2013 Carnë Draug <carandraug+dev@gmail.com>
 ##
 ## This program is free software; you can redistribute it and/or modify
@@ -32,7 +34,7 @@ with (
 );
 use namespace::autoclean;
 
-# ABSTRACT: add pod section from an interpreted piece of text
+# ABSTRACT: add pod section from an interpolated piece of text
 
 
 
@@ -75,6 +77,7 @@ has is_template => (
 
 
 
+
 sub weave_section {
   my ($self, $document, $input) = @_;
 
@@ -99,14 +102,14 @@ sub weave_section {
       bugtracker_email => $input->{distmeta}->{resources}->{bugtracker}->{mailto},
     });
   }
-
-  $text = Pod::Elemental::Element::Nested->new({
-    command  => "head" . $self->head,
-    content  => $self->title,
-    children => [
-      Pod::Elemental::Element::Pod5::Ordinary->new({ content => $text }),
-    ],
-  });
+  $text = Pod::Elemental::Element::Pod5::Ordinary->new({ content => $text });
+  if ($self->head) {
+    $text = Pod::Elemental::Element::Nested->new({
+      command  => "head" . $self->head,
+      content  => $self->title,
+      children => [$text],
+    });
+  }
   $document->children->push($text);
 }
 
@@ -116,13 +119,15 @@ __PACKAGE__->meta->make_immutable;
 __END__
 =pod
 
+=encoding utf-8
+
 =head1 NAME
 
-Pod::Weaver::Section::GenerateSection - add pod section from an interpreted piece of text
+Pod::Weaver::Section::GenerateSection - add pod section from an interpolated piece of text
 
 =head1 VERSION
 
-version 1.00
+version 1.01
 
 =head1 SYNOPSIS
 
@@ -168,7 +173,7 @@ concatenated. Certain sequences on the text will be replaced (see below).
 
 =head2 head
 
-The heading level of this section. Defaults to 1.
+The heading level of this section. If 0, there will be no heading. Defaults to 1.
 
 =head2 title
 
@@ -183,6 +188,8 @@ If true, it will add the text only to the main module POD. Defaults to false.
 
 If false, it will not attempt to replace the {{}} entries on text. Defaults to
 true.
+
+=for Pod::Coverage mvp_multivalue_args
 
 =head1 Text as template
 
@@ -209,6 +216,8 @@ variables are also set:
 =item $bugtracker_email
 
 =back
+
+=for Pod::Coverage weave_section
 
 =head1 AUTHOR
 

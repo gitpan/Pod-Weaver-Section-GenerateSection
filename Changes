@@ -1,5 +1,8 @@
 Summary of important user-visible changes for Pod::Weaver::Section::GenerateSection
 -----------------------------------------------------------------------------------
 
+1.01      2013-03-27 01:10:59 Europe/Dublin
+  * Introduced option to use no heading with a head value of 0 (zero).
+
 1.00      2013-03-21 22:42:01 Europe/Dublin
   * Initial release.
